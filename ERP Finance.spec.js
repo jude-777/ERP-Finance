@@ -1,6 +1,6 @@
 describe('Login', () => {
 
-    it('Sign in', () => {
+  beforeEach('Sign in', () => {
       cy.visit("https://finnewerpclient.azurewebsites.net/")
       cy.get('tenant-change > :nth-child(1) > a').click()
       cy.wait(5000)
@@ -13,35 +13,35 @@ describe('Login', () => {
       cy.get('.btn').click()
     })
 
-    it.skip('Account Module/FinStat', () => {
+    it('Account Module/FinStat', () => {
       cy.get('.kt-menu__nav > :nth-child(3) > :nth-child(1) > .kt-menu__link-text').click()
       cy.get(':nth-child(2) > :nth-child(3) > .kt-menu__toggle > .kt-menu__link-text').click()
-      cy.get('.kt-menu__item--open > .kt-menu__submenu > .kt-menu__subnav > :nth-child(10) > .kt-menu__link > .kt-menu__link-text').click()
+      cy.get(':nth-child(12) > .kt-menu__link > .kt-menu__link-text').click()
       cy.get('#reportTilte').type('AutoTest2')
-      cy.get('form.ng-touched > .row > .text-right > .form-group > .btn').click()
+      cy.get('form.ng-dirty > .row > .text-right > .form-group > .btn').click()
       cy.wait(10000)
       cy.contains('Property Definition').click()
-      cy.get('.row.form-group > :nth-child(1) > form.ng-tns-c414-13 > :nth-child(1) > :nth-child(1) > .form-group > .form-control').select('general')
+      cy.get('.row.form-group > :nth-child(1) > form.ng-tns-c416-13 > :nth-child(1) > :nth-child(1) > .form-group > .form-control').select('First Year')
       cy.get('.ng-invalid.ng-dirty > :nth-child(1) > :nth-child(2) > .form-group > .form-control').select('Category Caption')
       cy.get('#caption').type('test1')
       cy.get('.ui-inputswitch-slider').click()
       cy.get('.col-md-12 > .form-group > .btn').click()
       cy.wait(10000)
-      cy.get('.row.form-group > :nth-child(1) > form.ng-tns-c414-13 > :nth-child(1) > :nth-child(2) > .form-group > .form-control').select('Main Caption')
-      cy.get('.row.form-group > :nth-child(1) > form.ng-tns-c414-13 > :nth-child(1) > :nth-child(3) > .form-group > .form-control').select('233').should('have.value','233')
+      cy.get('.ng-invalid.ng-dirty > :nth-child(1) > :nth-child(2) > .form-group > .form-control').select('Main Caption')
+      cy.get('.row.form-group > :nth-child(1) > form.ng-tns-c416-13 > :nth-child(1) > :nth-child(3) > .form-group > .form-control').select('First Quarter')
       cy.get('#caption').type('Judo')
       cy.get('.ui-inputswitch-slider').click()
       cy.get('.col-md-12 > .form-group > .btn').click()
       cy.wait(10000)
       cy.contains('Account Mapping').click()
-      cy.get('.kt-form > form.ng-tns-c414-13 > :nth-child(1) > :nth-child(1) > .form-group > .form-control').select('general')
+      cy.get('.kt-form > form.ng-tns-c416-13 > :nth-child(1) > :nth-child(1) > .form-group > .form-control').select('First Year')
       cy.wait(5000)
-      cy.get('.kt-form > form.ng-tns-c414-13 > :nth-child(1) > :nth-child(2) > .form-group > .form-control').select('258').should('have.value', '258')
-      cy.get('.kt-form > form.ng-tns-c414-13 > :nth-child(1) > :nth-child(3) > .form-group > .form-control').select('ACCRUED')
+      cy.get('.kt-form > form.ng-tns-c416-13 > :nth-child(1) > :nth-child(2) > .form-group > .form-control').select('Test1113')
+      cy.get('.kt-form > form.ng-tns-c416-13 > :nth-child(1) > :nth-child(3) > .form-group > .form-control').select('ACCRUED ITF')
       cy.get('.col-sm-12 > .form-group > .btn').click()
     })
 
-    it.skip('Account Module/ Default Account', () => {
+    it('Account Module/ Default Account', () => {
       cy.get('.kt-menu__nav > :nth-child(3) > :nth-child(1) > .kt-menu__link-text').click()
       cy.get(':nth-child(2) > :nth-child(3) > .kt-menu__toggle > .kt-menu__link-text').click()
       cy.get(':nth-child(2) > .kt-menu__item--open > .kt-menu__submenu > .kt-menu__subnav > :nth-child(2) > .kt-menu__link > .kt-menu__link-text').click()
@@ -69,7 +69,7 @@ describe('Login', () => {
       cy.wait(10000)
     })
 
-    it.skip('Account Module/End Of Period' , () =>{
+    it('Account Module/End Of Period' , () =>{
       cy.get('.kt-menu__nav > :nth-child(3) > :nth-child(1) > .kt-menu__link-text').click()
       cy.get(':nth-child(2) > :nth-child(3) > .kt-menu__toggle > .kt-menu__link-text').click()
       cy.get(':nth-child(2) > .kt-menu__item--open > .kt-menu__submenu > .kt-menu__subnav > :nth-child(3) > .kt-menu__link > .kt-menu__link-text').click()
@@ -80,7 +80,7 @@ describe('Login', () => {
       cy.get('.swal2-confirm').click()
     })
 
-    it.skip('Account Module/Add COA' , () =>{
+    it('Account Module/Add COA' , () =>{
       cy.get('.kt-menu__nav > :nth-child(3) > :nth-child(1) > .kt-menu__link-text').click()
       cy.get(':nth-child(2) > :nth-child(3) > .kt-menu__toggle > .kt-menu__link-text').click()
       cy.get(':nth-child(2) > .kt-menu__item--submenu.kt-menu__item--open > .kt-menu__submenu > .kt-menu__subnav > :nth-child(1) > .kt-menu__link > .kt-menu__link-text').click()
@@ -98,7 +98,7 @@ describe('Login', () => {
       cy.wait(5000)
     })
 
-    it.skip('Account Module/Inactive Account',() => {
+    it('Account Module/Inactive Account',() => {
       cy.get('.kt-menu__nav > :nth-child(3) > :nth-child(1) > .kt-menu__link-text').click()
       cy.get(':nth-child(2) > :nth-child(3) > .kt-menu__toggle > .kt-menu__link-text').click()
       cy.get(':nth-child(2) > .kt-menu__item--submenu.kt-menu__item--open > .kt-menu__submenu > .kt-menu__subnav > :nth-child(1) > .kt-menu__link > .kt-menu__link-text').click()
@@ -110,7 +110,7 @@ describe('Login', () => {
       cy.get('.form-group > .btn').click()
     })
 
-    it.skip('Account Module/Journal Entry', () => {
+    it('Account Module/Journal Entry', () => {
       cy.get('.kt-menu__nav > :nth-child(3) > :nth-child(1) > .kt-menu__link-text').click()
       cy.get(':nth-child(2) > :nth-child(4) > .kt-menu__toggle > .kt-menu__link-text').click()
       cy.get(':nth-child(2) > .kt-menu__item--open > .kt-menu__submenu > .kt-menu__subnav > :nth-child(4) > .kt-menu__link > .kt-menu__link-text').click()
@@ -127,7 +127,7 @@ describe('Login', () => {
       cy.wait(5000)*/
     })
 
-    it.skip('Account Module/Reports/FinStat' , () => {
+    it('Account Module/Reports/FinStat' , () => {
       cy.get('.kt-menu__nav > :nth-child(8) > :nth-child(1) > .kt-menu__link-text').click()
       cy.get('[kt-hidden-height="80"] > :nth-child(2) > .kt-menu__item--submenu > .kt-menu__toggle > .kt-menu__link-text').click()
       cy.get('[kt-hidden-height="80"] > :nth-child(2) > .kt-menu__item--submenu > .kt-menu__submenu > .kt-menu__subnav > :nth-child(2) > .kt-menu__link > .kt-menu__link-text').click()
@@ -135,10 +135,10 @@ describe('Login', () => {
       cy.get('.form-group > :nth-child(1) > .form-control').select('First Year')
       cy.get(':nth-child(2) > .form-control').select('06-Apr-2021')
       cy.get('.pull-right > .btn').click()
-      cy.wait(7000)
+      cy.wait(40000)
     })
 
-    it.skip('Account Module/Report/General Ledger' , () => {
+    it('Account Module/Report/General Ledger' , () => {
       cy.get('.kt-menu__nav > :nth-child(8) > :nth-child(1) > .kt-menu__link-text').click()
       cy.get('[kt-hidden-height="80"] > :nth-child(2) > .kt-menu__item--submenu > .kt-menu__toggle > .kt-menu__link-text').click()
       cy.get('[kt-hidden-height="80"] > :nth-child(2) > .kt-menu__item--submenu > .kt-menu__submenu > .kt-menu__subnav > :nth-child(3) > .kt-menu__link > .kt-menu__link-text').click()
@@ -148,15 +148,15 @@ describe('Login', () => {
       cy.get(':nth-child(1) > bs-calendar-layout > .bs-datepicker-body > .days > tbody > :nth-child(2) > :nth-child(2) > span').click()
       cy.get(':nth-child(2) > bs-calendar-layout > .bs-datepicker-body > .days > tbody > :nth-child(2) > :nth-child(4) > span').click()
       cy.get('.pull-right > .btn').click()
-      cy.wait(5000)
+      cy.wait(40000)
     })
 
-    it.skip('Account Module/Report/Trial Balance' , () => {
+    it('Account Module/Report/Trial Balance' , () => {
       cy.get('.kt-menu__nav > :nth-child(8) > :nth-child(1) > .kt-menu__link-text').click()
       cy.get('[kt-hidden-height="80"] > :nth-child(2) > .kt-menu__item--submenu > .kt-menu__toggle > .kt-menu__link-text').click()
       cy.get('[kt-hidden-height="80"] > :nth-child(2) > .kt-menu__item--submenu > .kt-menu__submenu > .kt-menu__subnav > :nth-child(4) > .kt-menu__link > .kt-menu__link-text').click()
       cy.get('.col-lg-10 > .form-control').select('06-Apr-2021')
       cy.get('.col-lg-2 > .btn').click()
-      cy.wait(20000)
+      cy.wait(600000)
     })
   })
